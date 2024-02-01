@@ -24,7 +24,7 @@ test("validate with Invalid email",async({page})=>{
     await login.getInvalidEmailError()
 })
 
-test.only("validate with valid email and no password",async({page})=>{
+test("validate with valid email and no password",async({page})=>{
     // valid email
     // sign in click
     // validate assertion
