@@ -3,6 +3,10 @@ export default class LoginPage {
   constructor(page) {
     this.page = page;
   }
+  
+  async goToPage(base_url){
+    await this.page.goto(base_url)
+  }
 
   async enterEmail(email) {
     await this.page.locator("#email").type(email);

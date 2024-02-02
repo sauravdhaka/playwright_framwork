@@ -4,6 +4,10 @@ export default class RegisterPage {
     this.page = page;
   }
 
+  async goToPage(base_url){
+    await this.page.goto(base_url)
+  }
+
   async enterFirstNmae(firstname) {
     await this.page.locator("#firstname").type(firstname);
   }
