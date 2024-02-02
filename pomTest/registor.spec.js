@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 import LoginPage from "../pages/loginPage";
 import RegisterPage from "../pages/registrationPage";
 
-const email = "lala02@gmail.com";
+const email = "lala03@gmail.com";
 const password = "Lala@kaka123";
 
 
@@ -80,6 +80,8 @@ test("Validate Error messagae after click on create account button with first na
     // insert first name
     // insert last name
     //insert used email
+    // insert pass
+    //insert con-pass
     //create account click
     //validate assertion
 
@@ -90,9 +92,28 @@ test("Validate Error messagae after click on create account button with first na
     await registor.enterFirstNmae("Lala");
     await registor.enterLastNmae("kaka");
     await registor.enterEmail(email);
+    await registor.enterPassword(password);
+    await registor.enterConfirmPassword(password);
     await registor.clickCreateAccountButton();
     await registor.geUsedtEmailError();
   });
+
+  test("validate Error message afte click on create account button wiht invalid email",async({page})=>{
+     // insert first name
+    // insert last name
+    //insert used email
+    //create account click
+    //validate assertion
+    const registor = new RegisterPage(page);
+    await page.goto(
+      "https://magento.softwaretestingboard.com/customer/account/create/"
+    );
+    await registor.enterFirstNmae("Lala");
+    await registor.enterLastNmae("kaka");
+    await registor.enterEmail("email.com");
+    await registor.clickCreateAccountButton();
+    await registor.getEmailError();
+  })
 
   test("Validate Error messagae after click on create account button with first name and last name and Email and Password", async ({
     page,
@@ -116,7 +137,21 @@ test("Validate Error messagae after click on create account button with first na
     await registor.getConfirmPasswordError();
   });
 
-  test("With all required feilds", async ({ page }) => {
+  test("Validate Error message after click create account button with not matched password and confirm password",async({page})=>{
+    const registor = new RegisterPage(page);
+    await page.goto(
+      "https://magento.softwaretestingboard.com/customer/account/create/"
+    );
+    await registor.enterFirstNmae("Lala");
+    await registor.enterLastNmae("kaka");
+    await registor.enterEmail(email);
+    await registor.enterPassword(password);
+    await registor.enterConfirmPassword("kakahud");
+    await registor.clickCreateAccountButton();
+    await registor.getConfirmPasswordError();
+  })
+
+  test("Validate Error message after click create account button with all fields ", async ({ page }) => {
     const registor = new RegisterPage(page);
     await page.goto(
       "https://magento.softwaretestingboard.com/customer/account/create/"
@@ -128,3 +163,5 @@ test("Validate Error messagae after click on create account button with first na
     await registor.enterConfirmPassword(password);
     await registor.clickCreateAccountButton();
   });
+
+  

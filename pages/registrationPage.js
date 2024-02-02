@@ -43,11 +43,11 @@ export default class RegisterPage {
   }
 
   async geUsedtEmailError() {
-    expect(this.page.locator("#email_address-error")).toBeVisible();
+   await expect(this.page.getByText('There is already an account')).toBeVisible();
   }
 
   async getPasswordError() {
-    expect(this.page.locator("#password-error")).toBeVisible();
+     expect(this.page.locator("#password-error")).toBeVisible();
   }
 
   async getConfirmPasswordError() {
