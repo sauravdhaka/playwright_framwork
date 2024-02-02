@@ -74,7 +74,7 @@ test("Validate Error messagae after click on create account button with first na
     await registor.getPasswordError();
   });
 
-  test.only("Validate Error messagae after click on create account button with first name and last name and with used Email", async ({
+  test("Validate Error messagae after click on create account button with first name and last name and with used Email", async ({
     page,
   }) => {
     // insert first name
