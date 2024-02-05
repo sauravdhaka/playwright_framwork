@@ -25,4 +25,7 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+<<<<<<< HEAD
     
+=======
+>>>>>>> fdc6219285f3033fab5d2d7cbb4cc594f242abc2
