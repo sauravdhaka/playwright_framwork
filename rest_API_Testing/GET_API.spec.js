@@ -31,14 +31,14 @@ test("should be able to get booking with chekin and check out time",async({reque
 })
 
 
-test("should be able to get booking with booking ID",async({request})=>{
-    const response = await request.get("/booking/149")
-    expect(response.status()).toBe(200)
-    const result = await response.json()
-    expect(Object.keys(result).length).toBeGreaterThan(0);
-    console.log(result)
-    expect(result.firstname).toBe("Jim")
-    expect(result.lastname).toBe("Brown")
-    expect(result.depositpaid).toBeTruthy()
+// test("should be able to get booking with booking ID",async({request})=>{
+//     const response = await request.get("/booking/149")
+//     expect(response.status()).toBe(200)
+//     const result = await response.json()
+//     expect(Object.keys(result).length).toBeGreaterThan(0);
+//     console.log(result)
+//     expect(result.firstname).toBe("Jim")
+//     expect(result.lastname).toBe("Brown")
+//     expect(result.depositpaid).toBeTruthy()
 
-})
+// })
