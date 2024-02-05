@@ -21,9 +21,23 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+
+    - name: Run Tests and Generate Allure Report
+      run: |
+          npm test
+          allure generate allure-results --clean
+          cp -r allure-report $GITHUB_WORKSPACE/allure-report
+
+    - name: Publish Allure Report
+      uses: actions/upload-artifact@v2
+      with:
+            name: allure-report
+            path: allure-report/
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    
