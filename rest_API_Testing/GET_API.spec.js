@@ -32,7 +32,7 @@ test("should be able to get booking with chekin and check out time",async({reque
 
 
 test("should be able to get booking with booking ID",async({request})=>{
-    const response = await request.get("/booking/3181")
+    const response = await request.get("/booking/1117")
     expect(response.status()).toBe(200)
     const result = await response.json()
     expect(Object.keys(result).length).toBeGreaterThan(0);
