@@ -24,7 +24,7 @@ export default class LoginPage {
   
 
   async getMustHaveEmailError(){
-   expect(this.page.locator("#email-error")).toBeHidden();
+   expect(this.page.locator("#email-error")).toBeVisible();
   }
 
   async getInvalidEmailError(){
