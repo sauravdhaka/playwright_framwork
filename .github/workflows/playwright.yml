@@ -20,14 +20,7 @@ jobs:
       run: npx playwright install --with-deps
 
       
-    - name: Install Allure CLI
-      run: |
-        # Download Allure CLI
-        wget -O allure-2.15.0.zip https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.15.0/allure-commandline-2.15.0.zip
-        # Unzip Allure CLI
-        unzip allure-2.15.0.zip
-        # Add Allure CLI to PATH
-        export PATH=$PATH:$(pwd)/allure-2.15.0/bin
+   
 
     - name: Run Playwright tests and generate report
       run: |
