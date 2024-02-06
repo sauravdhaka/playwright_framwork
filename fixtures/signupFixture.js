@@ -1,5 +1,5 @@
 import base from "@playwright/test"
-import RegisterPage from "../pages/registrationPage"
+import RegisterPage from "../pages/PageObjectModel/registrationPage.js"
 
 
 

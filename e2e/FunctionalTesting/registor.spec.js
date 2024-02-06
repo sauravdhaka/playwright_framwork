@@ -1,4 +1,4 @@
-import { test } from "../fixtures/signupFixture.js";
+import { test } from "../../fixtures/signupFixture.js";
 
 
 const email = "lala03@gmail.com";

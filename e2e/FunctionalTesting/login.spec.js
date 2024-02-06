@@ -1,4 +1,4 @@
-import {test} from "../fixtures/loginFixture.js"
+import {test} from "../../fixtures/loginFixture"
 const email = "bani@gmail.com";
 const password = "Bani@dhaka";
 const base_url = "https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2NyZWF0ZS8%2C/"

@@ -1,5 +1,5 @@
 import {test , expect} from "@playwright/test"
-import bookingDetails from "../data/booking-details.json"
+import bookingDetails from "../../data/booking-details.json"
 
 
 test("should be able to create a booking with json data", async({request})=>{
