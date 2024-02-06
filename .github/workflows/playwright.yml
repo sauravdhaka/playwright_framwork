@@ -18,10 +18,8 @@ jobs:
       run: npm install
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
 
-
+      
     - name: Install Allure CLI
       run: |
         # Download Allure CLI
@@ -30,9 +28,15 @@ jobs:
         unzip allure-2.15.0.zip
         # Add Allure CLI to PATH
         export PATH=$PATH:$(pwd)/allure-2.15.0/bin
-        
-    - name : Generate Allure Report
-      run : allure generate allure-results -o allure-report --clean
+
+    - name: Run Playwright tests and generate report
+      run: |
+           npx playwright test
+           allure generate --clean
+
+
+
+   
     - uses: actions/upload-artifact@v3
       if: always()
       with:
