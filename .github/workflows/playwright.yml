@@ -23,9 +23,8 @@ jobs:
    
 
     - name: Run Playwright tests and generate report
-      run: |
-           npx playwright test
-           allure generate --clean
+      run: npx playwright test
+           
 
 
 
