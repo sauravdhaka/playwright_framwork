@@ -23,5 +23,5 @@ jobs:
         with:
           name: allure-report
           run: npm allure:generate
-          path: allure-report
+          path: allure-report/
           retention-days: 20
