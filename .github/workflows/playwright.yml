@@ -20,7 +20,8 @@ jobs:
       - name: Run Playwright tests
         run: npm test 
         continue-on-error: true
-      
+      - name: Generate Allure report
+        run: npm run allure:generate
         if : always()
       - uses: actions/upload-artifact@master
         with:
