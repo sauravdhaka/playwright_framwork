@@ -14,4 +14,3 @@ node_modules/
 /allure-report
 /allure-results
 
-/e2e/VisualTesting/visualTest.spec.js-snapshots
