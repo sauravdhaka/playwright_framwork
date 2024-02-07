@@ -21,6 +21,7 @@ jobs:
         continue-on-error: true 
         run: npm test || true
       - uses: actions/upload-artifact@master
+        if : always()
         with:
           name: allure-report
           path: allure-report/
