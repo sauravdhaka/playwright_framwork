@@ -8,7 +8,6 @@
     "allure:open": "npx allure open ./allure-report",
     "allure:serve": "npx allure serve",
     "test": "npx playwright test",
-    "posttest": "npm run allure:generate",
     "api:test" : "npx playwright test ./e2e/ApiTesting",
     "functional:test" : "npx playwright test ./e2e/FunctionalTesting"
   },
