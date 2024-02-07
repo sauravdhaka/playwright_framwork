@@ -18,8 +18,9 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        continue-on-error: true 
-        run: npm test || true
+        run: |
+              npm test
+              npm run allure:generate
       - uses: actions/upload-artifact@master
         if : always()
         with:
