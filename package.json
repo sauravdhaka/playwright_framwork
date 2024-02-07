@@ -11,7 +11,7 @@
     "posttest": "npm run allure:generate",
     "api:test" : "npx playwright test ./e2e/ApiTesting",
     "functional:test" : "npx playwright test ./e2e/FunctionalTesting",
-    "visual:test" : "npx playwright test ./e2e/VisualTesting"
+    "visual:test" : "npx playwright test ./e2e/VisualTesting --headed"
   },
   "keywords": [],
   "author": "",
