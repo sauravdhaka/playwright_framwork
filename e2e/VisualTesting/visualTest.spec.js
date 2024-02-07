@@ -1,18 +1,29 @@
 import  {expect, test} from "@playwright/test"
 
 
-test("Landing page visual test",async({page})=>{
+test("example test case",async({page})=>{
+    await page.goto("https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/")
+    await expect(page).toHaveScreenshot()
+})
+
+
+test("landing page visual test case",async({page})=>{
     await page.goto("https://magento.softwaretestingboard.com/")
-
-    expect(await page.screenshot()).toMatchSnapshot('landing.png')
+    await expect(page).toHaveScreenshot()
 })
 
-test("Login page visual test",async({page})=>{
-    await page.goto("https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2NyZWF0ZS8%2C/")
-    expect(await page.screenshot()).toMatchSnapshot('login.png')
+
+test("Login page visual test case",async({page})=>{
+    await page.goto("https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/")
+    await expect(page).toHaveScreenshot()
 })
 
-test("sign up page visual test",async({page})=>{
+test("signup page visual test case",async({page})=>{
     await page.goto("https://magento.softwaretestingboard.com/customer/account/create/")
-    expect(await page.screenshot()).toMatchSnapshot('register.png')
+    await expect(page).toHaveScreenshot()
+})
+
+test("signup page with partial part test case",async({page})=>{
+    await page.goto("https://magento.softwaretestingboard.com/customer/account/create/")
+    await expect(page).toHaveScreenshot({mask : [page.locator('#form-validate > fieldset.fieldset.create.account')]})
 })
