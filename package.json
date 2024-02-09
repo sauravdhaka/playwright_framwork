@@ -9,9 +9,9 @@
     "allure:serve": "npx allure serve",
     "test": "npx playwright test",
     "posttest": "npm run allure:generate",
-    "api:test" : "npx playwright test ./e2e/ApiTesting",
-    "functional:test" : "npx playwright test ./e2e/FunctionalTesting",
-    "visual:test" : "npx playwright test ./e2e/VisualTesting --headed"
+    "api:test": "npx playwright test ./e2e/ApiTesting",
+    "functional:test": "npx playwright test ./e2e/FunctionalTesting",
+    "visual:test": "npx playwright test ./e2e/VisualTesting --headed"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +19,12 @@
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.13",
-    "allure-playwright": "^2.12.0",
-    "allure-commandline": "^2.27.0"
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.12.0"
+  },
+  "dependencies": {
+    "lighthouse": "^11.5.0",
+    "playwright": "^1.41.2",
+    "playwright-lighthouse": "^4.0.0"
   }
-  
 }
