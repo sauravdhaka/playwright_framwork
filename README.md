@@ -21,12 +21,14 @@ git clone https://github.com/sauravdhaka/playwright_framwork.git
 ```
 
 2. Navigate to the project directory:
-   > `cd to project directory`
+```
+cd to project directory
+```
 
 3. Install the dependencies & playwright dependencies
 ```    
-    npm ci
-    npx playwright install
+npm ci
+npx playwright install
 ```
 
 
@@ -174,31 +176,104 @@ docker compose run --name={name_of_image}
 ### Custom CLI commands :
 
 1. for running all types of test together and generating allure report and opening same:
-        ```
-        npm test
-        ```
+ ```
+npm test
+```
 
 2. for running only Functional test:
-        ```
-        npm run functional:test
-        ```
+```
+npm run functional:test
+```
 
 3. for running only Api test:
-        ```
-        npm run api:test
-        ```
+```
+npm run api:test
+```
 
 4. for running only Visual tets:
-        ```
-        npm run visual:test
-        ```
+```
+npm run visual:test
+```
 
 5. for generating the allure-report
-        ```
-        npm run allure:generate
-        ```
+```
+npm run allure:generate
+```
 
 6. for opening the allure-report
-        ```
-        npm run allure:open
-        ```
+```
+npm run allure:open
+```
+
+
+### How to Make repository on Codecommit (AWS)
+
+#### follow the spets mention below :
+
+1. first go to the AWS console 
+
+2. select Codecommit service offered by AWS
+
+3. go into the repositories and build a new repository
+
+#### follow the stpes for creating repository using AWS CLI
+
+1. run the following command in cmd or terminal for creating new repo....
+```
+aws codecommit create-repository --repository-name NAME_OF_THE_REPO
+```
+
+### Upload all the demo framework code on this new created repository
+
+#### Steps to follow:
+
+1. clone codecommit repository using https / ssh in git bash
+    ```
+    before cloning this repository make sure to configure git with current repository
+    and give all the neccesary permission to this user to access the repository for read and wright
+    ```
+
+```
+git clone [clone url of the repository]
+```
+
+2. add all files to this local repository
+   ```
+   Copy/Paste
+   ```
+
+3. run the git add command
+
+```
+git add .
+```
+    ```
+    this command add all the files to the local repository
+    ```
+
+4. push all the code to remote repository
+
+```
+git push origin [name of the branch]
+```
+
+### Build this project In AWS
+
+#### for building this project we use codebuild service offerd by AWS.
+
+##### follow the below mention steps to build project
+
+1. Go to the Codebuild section of the aws
+
+2. Create a new project in this section
+
+3. fill all the neceasary feilds in order to make this build run
+
+4. Select project that you ant to build form codecommit repositories
+
+5. your project must include buildspec.yaml file for runing build
+
+
+
+
+
