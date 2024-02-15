@@ -14,20 +14,19 @@ WORKDIR /app
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH $JAVA_HOME/bin:$PATH
 
-
-
+COPY package.json /app/
+RUN npm install
 
 
 COPY e2e /app/e2e
 COPY fixtures /app/fixtures
-COPY pages /app/pages
+COPY support /app/support
 COPY package-lock.json /app/
-COPY package.json /app/
 COPY data /app/data
 COPY playwright.config.js /app/
-RUN npm install
 RUN npx playwright install
 RUN npx playwright install-deps
+RUN npm i allure-commandline
 COPY playwright-report /app/playwright-report
 
-CMD ["npm","test"]
+

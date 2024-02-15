@@ -2,14 +2,7 @@ version: '3'
 services:
   playwright-tests:
     image: playwright-tests
-
-  allure-report:
-    image: frankescobar/allure-docker-service:latest
-    environment:
-      CHECK_RESULTS_EVERY_SECONDS: 1
-      KEEP_HISTORY: 1
-    ports:
-      - "5050:5050"
+    command: sh -c "npm run api:test && npm run allure:generate"
     volumes:
-      - ${PWD}/allure-results:/app/allure-results
-      - ${PWD}/allure-reports:/app/default-reports
+      - ./app/results:/app/allure-report
+      
