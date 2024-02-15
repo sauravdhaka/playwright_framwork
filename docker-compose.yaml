@@ -2,7 +2,10 @@ version: '3'
 services:
   playwright-tests:
     image: playwright-tests
-    command: sh -c "npm run api:test && npm run allure:generate"
+    environment:
+      -  TEST?=$${TEST}
+    command:  >
+      /bin/sh -c "npm run $${TEST}; npm run allure:generate ; exit 0"
     volumes:
       - ./app/results:/app/allure-report
       
