@@ -1,4 +1,5 @@
 import {test} from "../../fixtures/loginFixture"
+import { allure } from "allure-playwright";
 const email = "bani@gmail.com";
 const password = "Bani@dhaka";
 const base_url = "https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2NyZWF0ZS8%2C/"
@@ -37,7 +38,8 @@ test("validate with valid email and wrong  password",async({loginPage})=>{
     await loginPage.getInvalidPasswordError()
 })
 
-test("validate wirh correct credentials",async({loginPage})=>{
+test("validate wirh correct credentials @smoke",async({loginPage})=>{
+    await allure.tag("test")
     await loginPage.goToPage(base_url)
     await loginPage.enterEmail(email)
     await loginPage.enterPassword(password)
