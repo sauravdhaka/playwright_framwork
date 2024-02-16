@@ -1,11 +1,26 @@
-version: '3'
+version: '3.8'
 services:
-  playwright-tests:
+  playwright-tests1:
     image: playwright-tests
-    environment:
-      -  TEST?=$${TEST}
     command:  >
-      /bin/sh -c "npm run $${TEST}; npm run allure:generate ; exit 0"
+      /bin/sh -c "npm run visual:test"
     volumes:
-      - ./app/results:/app/allure-report
-      
+      - ./allure-results:/app/allure-results
+    
+  playwright-tests2:
+    image: playwright-tests
+    volumes_from: 
+      - playwright-tests1
+    command:  >
+      /bin/sh -c "npm run api:test"
+   
+  
+  allure-report-generator:
+    image: playwright-tests
+    volumes_from: 
+      - playwright-tests1
+    command: sh -c "npx allure generate ./allure-results  -o ./allure-report --clean"
+    volumes:
+      - ./allure-report:/app/allure-report
+    
+  
