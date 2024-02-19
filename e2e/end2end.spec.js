@@ -3,7 +3,7 @@ import { log } from "console"
 import { PassThrough } from "stream"
 
 
-test.only("client login",async({page})=>{
+test("client login",async({page})=>{
     const productName = "ZARA COAT 3"
     const products = page.locator(".card-body")
     await page.goto("https://rahulshettyacademy.com/client/")
