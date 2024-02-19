@@ -1,11 +1,12 @@
 import { expect, page } from "@playwright/test";
+import { exec } from "child_process";
 export default class LoginPage {
   constructor(page) {
     this.page = page;
   }
-  
-  async goToPage(base_url){
-    await this.page.goto(base_url)
+
+  async goToPage(base_url) {
+    await this.page.goto(base_url);
   }
 
   async enterEmail(email) {
@@ -17,30 +18,36 @@ export default class LoginPage {
   }
 
   async clickLoginButton() {
+    await this.page.getByRole("button", { name: "Sign In" }).click();
     await this.page.waitForTimeout(3000);
-    await this.page.getByRole('button', { name: 'Sign In' }).click();
-    await this.page.waitForTimeout(3000);
-  }
-  
-
-  async getMustHaveEmailError(){
-   expect(this.page.locator("#email-error")).toBeHidden();
   }
 
-  async getInvalidEmailError(){
-   expect(this.page.locator("#email-error")).toBeVisible();
+  async getMustHaveEmailError() {
+    expect(this.page.locator("#email-error")).toBeHidden();
   }
 
-  async getPasswordError(){
-   expect(this.page.locator("#pass-error")).toBeVisible()
+  async getInvalidEmailError() {
+    expect(this.page.locator("#email-error")).toBeVisible();
   }
 
-  async getLoginPasswordError(){
-    expect(this.page.getByText('This is a required field.')).toBeVisible()
+  async getPasswordError() {
+    expect(this.page.locator("#pass-error")).toBeVisible();
   }
 
-  async getInvalidPasswordError(){
-    await expect(this.page.getByText('The account sign-in was incorrect')).toBeVisible();
+  async getLoginPasswordError() {
+    expect(this.page.getByText("This is a required field.")).toBeVisible();
   }
 
+  async getInvalidPasswordError() {
+    await expect(
+      this.page.getByText("The account sign-in was incorrect")
+    ).toBeVisible();
+  }
+
+  async navigateLoginPage() {
+    const currentURL = this.page.url();
+    expect(currentURL).toBe(
+      "https://magento.softwaretestingboard.com/customer/account/"
+    );
+  }
 }
